@@ -2,7 +2,6 @@
 
 <xsl:stylesheet version="3.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <script>console.log('xcvxcvxcv');</script>
 	<xsl:template name="patronDetails">
 		<div class="lkb-patron">
 			
