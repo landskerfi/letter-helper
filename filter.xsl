@@ -6,7 +6,6 @@
 
     version="3.0"
     >
-
 	<xsl:variable name="bbs" as="array(*)" select="[
 			'BBAAA','BBFAA','BBGAA','BBKAA','BBLAA','BBRAA','BBSAA','BBUAA','BBYAA',
 			'LINAA','KOPAA'
@@ -14,19 +13,18 @@
 	
 	<xsl:template match="/">
 		<html>
-
 			<head>
 				<title>
-					<xsl:value-of select="notification_data/general_data/subject"/>
+                    Array:filter not working
 				</title>
 			</head>
 			<body>
-			    <p><xsl:value-of select="cil:remove($bbs,['KOPAA','LINAA'])"/></p>
-
+			    <p><xsl:value-of select="cil:remove($bbs,['BBLAA','LINAA'])"/></p>
+                <!-- should return -->
+                <!-- BBAAA BBFAA BBGAA BBKAA BBRAA BBSAA BBUAA BBYAA KOPAA -->
 			</body>
 		</html>
 	</xsl:template>
-
 
     <xsl:function name="cil:remove" as="array(*)">
         <xsl:param name="sofn" as="array(*)"/>
@@ -36,4 +34,5 @@
             return $f
         "/>
     </xsl:function>
+
 </xsl:stylesheet>
