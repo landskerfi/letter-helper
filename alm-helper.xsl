@@ -69,8 +69,8 @@
     <xsl:variable name="barcode" select='/notification_data/phys_item_display/barcode'/>
     <xsl:variable name="req" select="if ($request_id != '') then $request_id else $additional_id"/>
     <xsl:variable name="db_url" select="'http://82.221.98.30/radari/requests/'"/>
-    <xsl:variable name="db_request" select="concat($db_url,lower-case($currentLibraryCode),'/',$req,'/',$kt,'/',$barcode)"/>
-    <xsl:variable name="jsonres" select="parse-json(unparsed-text($db_request))" as="map(*)" />
+    <!-- <xsl:variable name="db_request" select="concat($db_url,lower-case($currentLibraryCode),'/',$req,'/',$kt,'/',$barcode)"/> -->
+    <!-- <xsl:variable name="jsonres" select="parse-json(unparsed-text($db_request))" as="map(*)" /> -->
     <xsl:variable name="library" select="/notification_data/request/library_id"/>
     <xsl:variable name="libraries" as="element()*">
         <library>
