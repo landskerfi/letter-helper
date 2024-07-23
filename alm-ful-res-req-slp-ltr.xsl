@@ -119,7 +119,7 @@
                 <xsl:variable name="geNumer" as="xs:string" select="./identifiers/code_value[code='01'][1]/value"/>
                 <xsl:if test="cil:noneExcept([$nafnlaus])">
                     <div class="barcode">*{upper-case($geNumer)}*</div>
-                    <!-- <xsl:variable name="bc" select="unparsed-text(concat('http://82.221.98.30/barcode/',$geNumer))"/> -->
+                    <!-- <xsl:variable name="bc" select="unparsed-text(concat('http:///barcode/',$geNumer))"/> -->
                     <!-- <img src="{$bc}" width="200"/> -->
                 </xsl:if>
             </div>
