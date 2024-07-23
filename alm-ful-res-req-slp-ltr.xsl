@@ -10,8 +10,6 @@
         <html>
             <head>
                 
-                <!-- <link rel="stylesheet" type="text/css" href="https://api.landskerfi.is/xml/alm-styles.css" /> -->
-                <!-- <link rel="stylesheet" type="text/css" href="alm-styles.css" /> -->
                 <style>
                     @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text');
                     *, *::before, *::after {
