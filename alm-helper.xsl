@@ -59,7 +59,13 @@
             return $s
                         "/>
     </xsl:function> 
-
+    <xsl:function name="cil:formatDate" as="xs:string">
+        <xsl:param name="date" as="xs:string"/>
+        <xsl:sequence select="
+            let $f := replace($date,'\/','\.' ,';j')
+            return $f
+                        "/>
+    </xsl:function>
 
     <xsl:variable name="fn" select="/notification_data/user_for_printing/name"/>
     <xsl:variable name="request_id" select="/notification_data/request_id"/>
