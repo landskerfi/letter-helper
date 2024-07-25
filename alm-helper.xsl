@@ -71,13 +71,10 @@
     <xsl:variable name="request_id" select="/notification_data/request_id"/>
     <xsl:variable name="additional_id" select="concat(/notification_data/additional_id,'0006893')"/>
     <xsl:variable name="kt" select='/notification_data/user_for_printing/identifiers/code_value[code="Primary Identifier"]/value'/>
-    <xsl:variable name="nafnKt" select="tokenize($fn,'\B(.)',';j') => serialize() => translate(' ','') => concat($kt => substring(7))"/>
+    <xsl:variable name="nafnKt" select="tokenize($fn,'\B(.)',';j') => serialize() => translate(' ','') => concat($kt => substring(7,3))"/>
     <xsl:variable name="barcode" select='/notification_data/phys_item_display/barcode'/>
     <xsl:variable name="req" select="if ($request_id != '') then $request_id else $additional_id"/>
 
-    <!-- <xsl:variable name="db_request" select="concat($db_url,lower-case($currentLibraryCode),'/',$req,'/',$kt,'/',$barcode)"/> -->
-    <!-- <xsl:variable name="jsonres" select="parse-json(unparsed-text($db_request))" as="map(*)" /> -->
-    <xsl:variable name="library" select="/notification_data/request/library_id"/>
     <xsl:variable name="libraries" as="element()*">
         <library>
             <code>BESAA</code>
@@ -520,9 +517,8 @@
             <name>Urriðaholtssafn</name>
         </library>
     </xsl:variable>
+    <!-- TODO: check if this works consistently --> 
     <xsl:variable name="currentLibraryCode" select="$libraries[id=$library]/code"/>	
     <xsl:variable name="currentLibraryName" select="$libraries[id=$library]/name"/>	
-    <xsl:variable name='alm' as="array(*)" select="array {$libraries/code/text()}"/>
-
-
+    <xsl:variable name="alm" as="array(*)" select="array {$libraries/code/text()}"/>
 </xsl:transform>
