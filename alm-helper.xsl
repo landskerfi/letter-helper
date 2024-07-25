@@ -548,4 +548,28 @@
     <xsl:variable name="currentLibraryCode" select="$libraries[id=$library]/code"/>	
     <xsl:variable name="currentLibraryName" select="$libraries[id=$library]/name"/>	
     <xsl:variable name="alm" as="array(*)" select="array {$libraries/code/text()}"/>
+
+    <xsl:template name="header">
+                  <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+                <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no"/>
+                <meta name="x-apple-disable-message-reformatting"/>
+                <meta name="color-scheme" content="light dark"/>
+                <meta name="supported-color-schemes" content="light dark"/>
+                <title xsl:expand-text="yes">{notification_data/general_data/letter_name}</title>
+                <xsl:comment>[if mso]>
+                    &lt;style&gt;
+                    * {
+                    font-family: sans-serif !important;
+                    }
+                    &lt;/style&gt;
+                    &lt;![endif]</xsl:comment>
+                <style>
+                    :root {
+                    color-scheme: light dark;
+                    supported-color-schemes: light dark;
+                    }
+                </style> 
+</xsl:template>    
 </xsl:transform>
