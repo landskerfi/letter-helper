@@ -66,6 +66,33 @@
             return $f
                         "/>
     </xsl:function>
+     <!-- use as <i div="style={cil:hSpace('10px')}>&#8202;</i> -->
+    <xsl:function name="cil:hSpace" as="xs:string">
+        <xsl:param name="s" as="xs:string"/>
+        <xsl:sequence select="
+          let $f := (concat('letter-spacing:',$s,';mso-font-width:-100%;display:inline-block;width:',$s,';'))
+          return $f
+                    "/>
+    </xsl:function>
+  
+    <!-- use as <div style="{cil:vSpace('15px')}">&#8202;</div> --> 
+    <xsl:function name="cil:vSpace" as="xs:string">
+        <xsl:param name="s" as="xs:string"/>
+        <xsl:sequence select="
+          let $f := (concat('line-height:',$s,'; height:',$s,'; font-size:', $s,';'))
+          return $f
+                    "/>
+    </xsl:function>
+  
+    <!-- use as <i div="style={cil:space('10px','30px')}>&#8202;</i> -->
+    <xsl:function name="cil:space" as="xs:string">
+        <xsl:param name="h" as="xs:string"/>
+        <xsl:param name="v" as="xs:string"/>
+        <xsl:sequence select="
+          let $f := (concat('letter-spacing:',$h,';mso-font-width:-100%;display:inline-block;width:',$h,';font-size:',$v,';mso-text-raise:',$h,';height:',$h,';'))
+          return $f
+                    "/>
+    </xsl:function>
 
     <xsl:variable name="fn" select="/notification_data/user_for_printing/name"/>
     <xsl:variable name="request_id" select="/notification_data/request_id"/>
